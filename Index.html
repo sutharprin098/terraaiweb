@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terra AI · Intelligence for Earth Data</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2e8b6f;
+      --accent: #1b4332;
+      --bg-color: #fffdf0;
+      --card-bg: rgba(255, 255, 255, 0.7);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+    body {
+      background-color: var(--bg-color);
+      color: #2d3436;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Subtle Background Animation */
+    .hero-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: radial-gradient(circle at 15% 15%, rgba(46, 139, 111, 0.05) 0%, transparent 50%);
+      z-index: -1;
+    }
+
+    header {
+      padding: 80px 20px 30px;
+      text-align: center;
+    }
+
+    /* Extra Large Logo Integration */
+    .logo-container {
+      display: inline-block;
+      animation: softFloat 5s ease-in-out infinite;
+    }
+
+    .logo-svg {
+      width: 200px; /* Enhanced Size */
+      height: 200px;
+      filter: drop-shadow(0 20px 40px rgba(46, 139, 111, 0.2));
+    }
+
+    @keyframes softFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+
+    .hero {
+      text-align: center;
+      padding: 20px 5% 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: clamp(40px, 8vw, 78px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--accent);
+      margin-bottom: 25px;
+      letter-spacing: -3px;
+    }
+
+    h1 span { color: var(--primary); }
+
+    .hero p {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #64748b;
+      max-width: 800px;
+      margin: 0 auto 45px;
+      font-weight: 300;
+    }
+
+    /* Formspree CTA Box */
+    .cta-form {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 24px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.04);
+      max-width: 550px;
+      margin: 0 auto 100px;
+      border: 1px solid #f1f5f9;
+    }
+
+    input[type="email"] {
+      padding: 18px 25px;
+      flex: 1;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      min-width: 250px;
+      background: transparent;
+    }
+
+    .btn-main {
+      padding: 18px 40px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 18px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btn-main:hover {
+      background: var(--accent);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(46, 139, 111, 0.2);
+    }
+
+    /* Capability Section */
+    .section-title {
+      text-align: center;
+      font-size: clamp(28px, 5vw, 42px);
+      color: var(--accent);
+      margin-bottom: 50px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 0 8% 100px;
+    }
+
+    .f-card {
+      padding: 50px 40px;
+      background: var(--card-bg);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      transition: 0.4s ease;
+    }
+
+    .f-card:hover {
+      background: #ffffff;
+      transform: translateY(-12px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+      border-color: var(--primary);
+    }
+
+    .icon-box {
+      width: 60px; height: 60px;
+      background: var(--primary);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 18px;
+      margin-bottom: 25px;
+      font-size: 24px;
+      box-shadow: 0 10px 20px rgba(46, 139, 111, 0.2);
+    }
+
+    .f-card h3 { color: var(--accent); margin-bottom: 18px; font-size: 24px; }
+    .f-card p { font-size: 16px; color: #64748b; line-height: 1.7; }
+
+    footer {
+      padding: 60px 20px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 15px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .logo-svg { width: 140px; height: 140px; }
+      .hero { padding-bottom: 40px; }
+      .cta-form { padding: 5px; border-radius: 20px; }
+      .btn-main { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-bg"></div>
+
+  <header>
+    <div class="logo-container">
+      <img src="TerraAIlogo.svg" alt="Terra AI" class="logo-svg">
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Advanced Intelligence for <span>Earth Observation.</span></h1>
+    <p>Empowering researchers and organizations to convert raw satellite imagery into actionable environmental insights and scientific reports.</p>
+
+    <form action="https://formspree.io/f/xzdageze" method="POST" class="cta-form">
+      <input type="email" name="email" placeholder="Enter your email for early access" required>
+      <button type="submit" class="btn-main">Request Access</button>
+    </form>
+  </section>
+
+  <h2 class="section-title">How It Works</h2>
+  
+  <section class="process-grid">
+    <div class="f-card">
+      <div class="icon-box"><i class="fas fa-globe-americas"></i></div>
+      <h3>Data Acquisition</h3>
+      <p>Seamlessly ingest high-resolution multispectral data from Sentinel, Landsat, and commercial satellite constellations across any global coordinate.</p>
+    </div>
+
+    <div class="f-card">
+      <div class="icon-box"><i class="fas fa-microchip"></i></div>
+      <h3>Neural Processing</h3>
+      <p>Our proprietary AI models perform real-time LULC classification, NDVI analysis, and change detection with unprecedented accuracy.</p>
+    </div>
+
+    <div class="f-card">
+      <div class="icon-box"><i class="fas fa-file-signature"></i></div>
+      <h3>Automated Reporting</h3>
+      <p>Instantly generate comprehensive, publication-ready scientific PDF reports featuring statistical trends, heatmaps, and temporal analysis.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Terra AI · Pioneering Geospatial Intelligence</p>
+  </footer>
+
+</body>
+</html>
